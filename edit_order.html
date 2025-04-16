@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تعديل الطلب</title>
+</head>
+<body>
+    <h2>تعديل الطلب</h2>
+    <form method="post">
+        <input name="customer_name" value="{{ order[1] }}" placeholder="اسم العميل"><br>
+        <input name="product" value="{{ order[2] }}" placeholder="الخدمة / المنتج"><br>
+        <select name="status">
+            <option {% if order[3] == 'جديد' %}selected{% endif %}>جديد</option>
+            <option {% if order[3] == 'قيد المعالجة' %}selected{% endif %}>قيد المعالجة</option>
+            <option {% if order[3] == 'تم الشحن' %}selected{% endif %}>تم الشحن</option>
+            <option {% if order[3] == 'تم التسليم' %}selected{% endif %}>تم التسليم</option>
+            <option {% if order[3] == 'تم الإلغاء' %}selected{% endif %}>تم الإلغاء</option>
+        </select><br>
+        <button type="submit">حفظ التعديلات</button>
+    </form>
+</body>
+</html>
